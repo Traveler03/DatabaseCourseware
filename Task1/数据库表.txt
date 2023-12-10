@@ -1,0 +1,13 @@
+表名：									属性：
+alia(别名表)：								plant_id(nchar(4),植物id)，alias(nvarchar(50),别名名字)
+fig(配图表)：								fig_id(nchar(4)，配图id)，fig_des(text，配图描述)，fig_place(nverchar(50,拍摄地点))，fig_people(nverchar(50),拍摄人员)，fig(nvchar(50),配图路径)，created_by（nvarchar(50),创建人）,created_at(date,创建时间)，updated_at（date，更新时间）
+Maintenance(养护任务表)：					task_id(ncahr(4),任务id)，task_name(nvarchar(50,任务名称))，time（date,任务时间），place(nvarchar(50),任务地点)，task_des(text,任务描述)
+Maninternance_user(养护——人员表)：   			task_id(nchar(4),任务id)，user_id（nchar(4),人员id）
+medicine(药表)：							medicin_id(nchar(4),药id)，medicine_name(nvarchar(50),药物名称)，duration（nvarchar(50)，作用期限）
+Pest(病虫害管理表)：							pest_id(nchar(4),病虫害id)，pest_name(nvarchar(50),病虫害名称)，cm（text，防止方法）
+plant_fig(植物-配图表)：						plant_id（nchar(4)，植物id），fig_id(nchar(4)，配图id)
+plant(植物表)：								plant_id(ncahr(4),植物id),species_name（nvarchar(50)，种名），morphology（text，形态特征），value(text，应用价值)，key_tech（text,栽培技术要点），environment(text,生长环境)，created_by（nvarchar(50),创建人）,created_at(date,创建时间)，updated_at（date，更新时间）
+plant_Maintenance(养护任务——植物表)： 			plant_id（nchar(4),植物id），task_id(nchar(4),养护任务id)
+plant_pest(植物——病虫害表)：					plant_id(ncahr(4),植物id)，pest_id(nchar（4），病虫害id)
+pest_medicine(病虫害——药物表)：				medicine_id(nchar(4),药物id)，pest_id(nchar（4）病虫害id),Dosage(nvarchar(50),药物用量)
+user(用户表)								user_id(nchar(4),用户名id)，user_name(nvarchar(50),用户名)，password(nvarchar(50),密码)，posts(nvarchar(50)，职务)，Permissions(int,权限)
