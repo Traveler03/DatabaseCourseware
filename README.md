@@ -6,5 +6,5 @@
 - 记得要`commit` 后再`push`到GitHub仓库，这样有提交痕迹，用于展示使用！
 
 ## 开发规范
-- 数据库的名称 `Gardenplants`
+- 数据库的名称 `GardenPlants`
 - 各个任务对应的表参考根目录下的`数据库表.txt`文件
