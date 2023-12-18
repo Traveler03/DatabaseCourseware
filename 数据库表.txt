@@ -3,7 +3,7 @@ fig(配图表)：								fig_id(bigint，配图id)，fig_des(nvarchar(MAX)，配
 Maintenance(养护任务表)：					task_id(bigint,任务id)，task_name(nvarchar(50,任务名称))，time（date,任务时间），place(nvarchar(50),任务地点)，task_des(nvarchar(MAX),任务描述)
 Maninternance_user(养护——人员表)：   			task_id(bigint,任务id)，user_id（nchar(4),人员id）
 medicine(药表)：							medicin_id(bigint,药id)，medicine_name(nvarchar(50),药物名称)，duration（nvarchar(50)，作用期限）
-Pest(病虫害管理表)：							pest_id(bigint,病虫害id)，pest_name(nvarchar(50),病虫害名称)，cm（nvarchar(MAX)，防止方法）
+Pest(病虫害管理表)：							pest_id(bigint,病虫害id)，pest_name(nvarchar(50),病虫害名称)，cm（nvarchar(MAX)，防治方法）
 plant_fig(植物-配图表)：						plant_id（bigint，植物id），fig_id(bigint，配图id)
 plant(植物表)：								plant_id(bigint,植物id),alia(nvarchar(MAX),别名)species_name（nvarchar(50)，种名），morphology（nvarchar(MAX)，形态特征），value(nvarchar(MAX)，应用价值)，key_tech（nvarchar(MAX),栽培技术要点），environment(nvarchar(MAX),生长环境)，created_by（nvarchar(50),创建人）,created_at(date,创建时间)，updated_at（date，更新时间）
 plant_Maintenance(养护任务——植物表)： 			plant_id（bigint,植物id），task_id(bigint,养护任务id)
