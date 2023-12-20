@@ -1,21 +1,21 @@
-表名：									            属性：
-fig(配图表)：								      fig_id(bigint，配图id)，fig_des(nvarchar(MAX)，配图描述)，fig_place(nverchar(50,拍摄地点))，fig_people(nverchar(50),拍摄人员)，fig(nvchar(50),配图路径)，created_by（nvarchar(50),创建人）,created_at(date,创建时间)，updated_at（date，更新时间）
-Maintenance(养护任务表)：					task_id(bigint,任务id)，task_name(nvarchar(50,任务名称))，time（date,任务时间），place(nvarchar(50),任务地点)，task_des(nvarchar(MAX),任务描述)
-Maninternance_user(养护——人员表)： task_id(bigint,任务id)，user_id（nchar(4),人员id）
-medicine(药表)：							      medicin_id(bigint,药id)，medicine_name(nvarchar(50),药物名称)，duration（nvarchar(50)，作用期限）
-Pest(病虫害管理表)：							  pest_id(bigint,病虫害id)，pest_name(nvarchar(50),病虫害名称)，cm（nvarchar(MAX)，防治方法）
-plant_fig(植物-配图表)：						plant_id（bigint，植物id），fig_id(bigint，配图id)
-plant(植物表)：								    plant_id(bigint,植物id),alia(nvarchar(MAX),别名)species_name（nvarchar(50)，种名），morphology（nvarchar(MAX)，形态特征），value(nvarchar(MAX)，应用价值)，key_tech（nvarchar(MAX),栽 培技术要点），environment(nvarchar(MAX),生长环境)，created_by（nvarchar(50),创建人）,created_at(date,创建时间)，updated_at（date，更新时间）
-plant_Maintenance(养护任务——植物表)：plant_id（bigint,植物id），task_id(bigint,养护任务id)
+表名：			属性：
+fig(配图表)：		fig_id(bigint，配图id)，fig_des(nvarchar(MAX)，配图描述)，fig_place(nverchar(50,拍摄地点))，fig_people(nverchar(50),拍摄人员)，fig(nvchar(50),配图路径)，created_by（nvarchar(50),创建人）,created_at(date,创建时间)，updated_at（date，更新时间）
+Maintenance(养护任务表)：	task_id(bigint,任务id)，task_name(nvarchar(50,任务名称))，time（date,任务时间），place(nvarchar(50),任务地点)，task_des(nvarchar(MAX),任务描述)
+Maninternance_user(养护——人员表)：    task_id(bigint,任务id)，user_id（nchar(4),人员id）
+medicine(药表)：						 medicin_id(bigint,药id)，medicine_name(nvarchar(50),药物名称)，duration（nvarchar(50)，作用期限）
+Pest(病虫害管理表)：			  pest_id(bigint,病虫害id)，pest_name(nvarchar(50),病虫害名称)，cm（nvarchar(MAX)，防治方法）
+plant_fig(植物-配图表)：			plant_id（bigint，植物id），fig_id(bigint，配图id)
+plant(植物表)：		  plant_id(bigint,植物id),alia(nvarchar(MAX),别名)species_name（nvarchar(50)，种名），morphology（nvarchar(MAX)，形态特征），value(nvarchar(MAX)，应用价值)，key_tech（nvarchar(MAX),栽 培技术要点），environment(nvarchar(MAX),生长环境)，created_by（nvarchar(50),创建人）,created_at(date,创建时间)，updated_at（date，更新时间）
+plant_Maintenance(养护任务——植物表)：       plant_id（bigint,植物id），task_id(bigint,养护任务id)
 plant_pest(植物——病虫害表)：					plant_id(bigint,植物id)，pest_id(bigint，病虫害id)
 pest_medicine(病虫害——药物表)：			medicine_id(bigint,药物id)，pest_id(bigint,病虫害id),Dosage(nvarchar(50),药物用量)
-user(用户表)								          user_id(bigint,用户名id)，user_name(nvarchar(50),用户名)，password(nvarchar(50),密码)，posts(nvarchar(50)，职务)，Permissions(int,权限)
-classes(种类表)								      class_id(bigint, 种类id)，parent(bigint,上一级id)，rank（int，等级），class_name(nvachar(50)分类名称)
-plant_class(植物——种类表)					  plant_id（bigint,植物id），class_id(bigint，种类id)
-region（地区表）							        region_id(bigint，地区id)，parent(bigint，上一级id)，rank（int，等级），region_name(nvarchar(50),地区名称）
-metrics(监测指标表)						    	metrics_ip（bigint，监测指标id），illumination（int,光照指标），temperature（int，温度指标），grow（int,生长指标）
-equipment(监测设备表)						    equipment_id(监测设备id)，equipment_name(nvarchar(50),监测设备名称)
-plant_metrics（植物——监测指标表）			palnt_id(bigint,植物id)，metrics_ip(bigint，监测指标id)
-plant_region(植物——地区表)					  palnt_id(bigint,植物id)，region_id(地区id)
-equipment_metrics(设备——监测指标表)	equipment(bignt,植物id)，metrics_ip（bigint，监测指标id）
-monitorData(监测信息表）             monitor_id(bigint, 记录id)，monitor_region(nvarchar(50)，监测地点)，monitor_time(date，监测时间)，plant_id(bigint，植物id)，monitor_temp(float，null，温度数据)，monitor_grow(nvarchar(50)，null，生长数据)，monitor_illu(nvarchar(50)，null，光照数据) 
+user(用户表)		       user_id(bigint,用户名id)，user_name(nvarchar(50),用户名)，password(nvarchar(50),密码)，posts(nvarchar(50)，职务)，Permissions(int,权限)
+classes(种类表)				class_id(bigint, 种类id)，parent(bigint,上一级id)，rank（int，等级），class_name(nvachar(50)分类名称)
+plant_class(植物——种类表)			plant_id（bigint,植物id），class_id(bigint，种类id)
+region（地区表）					 region_id(bigint，地区id)，parent(bigint，上一级id)，rank（int，等级），region_name(nvarchar(50),地区名称）
+metrics(监测指标表)	    	metrics_ip（bigint，监测指标id），illumination（int,光照指标），temperature（int，温度指标），grow（int,生长指标）
+equipment(监测设备表)		   equipment_id(监测设备id)，equipment_name(nvarchar(50),监测设备名称)
+plant_metrics（植物——监测指标表）  			palnt_id(bigint,植物id)，metrics_ip(bigint，监测指标id)
+plant_region(植物——地区表)			   palnt_id(bigint,植物id)，region_id(地区id)
+equipment_metrics(设备——监测指标表)   	equipment(bignt,植物id)，metrics_ip（bigint，监测指标id）
+monitorData(监测信息表）       monitor_id(bigint, 记录id)，monitor_region(nvarchar(50)，监测地点)，monitor_time(date，监测时间)，plant_id(bigint，植物id)，monitor_temp(float，null，温度数据)，monitor_grow(nvarchar(50)，null，生长数据)，monitor_illu(nvarchar(50)，null，光照数据) 
