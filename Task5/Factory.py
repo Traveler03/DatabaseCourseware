@@ -10,8 +10,8 @@ class dao_factory(object):
 
     def __new__(cTs, *args, **kwargs):
         if dao_factory._instance is None:
-            dao_factory._instance=object.__new_(dao_factory,*args,**kwargs)
-        return dao_factory.  instance
+            dao_factory._instance = object.__new__(dao_factory, *args, **kwargs)
+        return dao_factory.instance
 
     def create(self, name):#创建相应的类型
         sample = ""
