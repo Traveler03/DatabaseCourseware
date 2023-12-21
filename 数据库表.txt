@@ -18,4 +18,4 @@ equipment(监测设备表)		   equipment_id(监测设备id)，equipment_name(nva
 plant_metrics（植物——监测指标表）  			plant_id(bigint,植物id)，metrics_ip(bigint，监测指标id)
 plant_region(植物——地区表)			   plant_id(bigint,植物id)，region_id(地区id)
 equipment_metrics(设备——监测指标表)   	equipment_id(bignt,监测设备id)，metrics_ip（bigint，监测指标id）
-monitorData(监测信息表）       monitor_id(bigint, 记录id)，monitor_region(nvarchar(50)，监测地点)，monitor_time(date，监测时间)，plant_id(bigint，植物id)，metrics_ip(bigint，监测指标id)，monitor_temp(float，null，温度数据)，monitor_grow(nvarchar(50)，null，生长数据)，monitor_illu(nvarchar(50)，null，光照数据) 
+monitorData(监测信息表）       monitor_id(bigint, 记录id)，monitor_region(nvarchar(50)，监测地点)，monitor_time(date，监测时间)，plant_id(bigint，植物id)，monitor_temp(float，null，温度数据)，monitor_grow(nvarchar(50)，null，生长数据)，monitor_illu(nvarchar(50)，null，光照数据) 
