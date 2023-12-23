@@ -1,4 +1,4 @@
-![image](https://github.com/Traveler03/DatabaseCourseware/assets/98093304/bcc023c1-eedf-475f-bc80-0b01ee4347e3)# DatabaseCourseware
+## DatabaseCourseware
 数据库课设小组
 ## 说明
 - 在对应的文件夹下完成自己的任务。
