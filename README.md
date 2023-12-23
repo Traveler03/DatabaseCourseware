@@ -1,4 +1,4 @@
-# DatabaseCourseware
+![image](https://github.com/Traveler03/DatabaseCourseware/assets/98093304/bcc023c1-eedf-475f-bc80-0b01ee4347e3)# DatabaseCourseware
 数据库课设小组
 ## 说明
 - 在对应的文件夹下完成自己的任务。
@@ -10,5 +10,6 @@
 - 各个任务对应的表参考根目录下的`数据库表.txt`文件
 
 
-## 备注
+## 课设项目结构
+![image](https://github.com/Traveler03/DatabaseCourseware/assets/98093304/a5d25e7c-1696-4955-b070-057f880563c0)
 
