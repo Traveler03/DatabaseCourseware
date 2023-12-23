@@ -19,3 +19,5 @@ plant_metrics（植物——监测指标表）  			plant_id(bigint,植物id)，m
 plant_region(植物——地区表)			   plant_id(bigint,植物id)，region_id(地区id)
 equipment_metrics(设备——监测指标表)   	equipment_id(bignt,监测设备id)，metrics_ip（bigint，监测指标id）
 monitorData(监测信息表）       monitor_id(bigint, 记录id)，monitor_region(nvarchar(50)，监测地点)，monitor_time(date，监测时间)，plant_id(bigint，植物id)，monitor_temp(float，null，温度数据)，monitor_grow(nvarchar(50)，null，生长数据)，monitor_illu(nvarchar(50)，null，光照数据) 
+ExceptionLog(异常信息日志表)      monitor_id(bigint,记录id), exception_detail(nvarchar(255),异常信息)
+plantThreshold(植物监测阈值表）      plant_id(bigint,植物id), maxtemp(float, null, 最大温度), mintemp(float, null, 最小温度), maxgrow(nvarchar(50), null, 最大生长量), mingrow(nvarchar(50), null, 最小生长量), maxillu(nvarchar(50), null, 最大光照), minillu(nvarchar(50), null, 最小光照)
