@@ -13,3 +13,10 @@
 ## 课设项目结构
 ![image](https://github.com/Traveler03/DatabaseCourseware/assets/98093304/a5d25e7c-1696-4955-b070-057f880563c0)
 
+## 备注
+Task5_monitorData_trigger触发器详情：
+当向monitorData表插入或更新数据时，如果新的数据的monitor_temp、monitor_grow或monitor_illu字段的值超过（或低于）设定的阈值，那么就向ExceptionLog_table表插入一条新的记录，记录下这个异常情况。
+在sql server中运行该代码后：
+① 可使用 sp_help 查看触发器的一般信息；EXEC sp_help monitorData_trigger
+② 可使用 sp_depends 查看触发器的相关性；EXEC sp_depends monitorData_trigger
+③ 可使用 sp_helptext 查看触发器的定义信息；EXEC sp_helptext monitorData_trigger
