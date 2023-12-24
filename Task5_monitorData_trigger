@@ -1,1 +1,15 @@
+CREATE TRIGGER monitorData_trigger
+ON monitorData
+AFTER INSERT, UPDATE
+AS
+BEGIN
+    DECLARE @monitor_id INT, @monitor_region NVARCHAR(50), @monitor_time DATE, @plant_id BIGINT, @monitor_temp FLOAT, @monitor_grow NVARCHAR(50), @monitor_illu NVARCHAR(50);
+    DECLARE @maxtemp FLOAT, @mintemp FLOAT, @maxgrow NVARCHAR(50), @mingrow NVARCHAR(50), @maxillu NVARCHAR(50), @minillu NVARCHAR(50);
+    
+    SELECT @monitor_id = monitor_id, @monitor_region = monitor_region, @monitor_time = monitor_time, @plant_id = plant_id, @monitor_temp = monitor_temp, @monitor_grow = monitor_grow, @monitor_illu = monitor_illu FROM inserted;
+    SELECT @maxtemp = maxtemp, @mintemp = mintemp, @maxgrow = maxgrow, @mingrow = mingrow, @maxillu = maxillu, @minillu = minillu FROM plantThreshold WHERE plant_id = @plant_id;
 
+    IF @monitor_temp > @maxtemp OR @monitor_temp < @mintemp OR @monitor_grow > @maxgrow OR @monitor_grow < @mingrow OR @monitor_illu > @maxillu OR @monitor_illu < @minillu
+        INSERT INTO ExceptionLog(monitor_id, exception_detail)
+        VALUES (@monitor_id, CONCAT('monitor_id: ', @monitor_id, ', monitor_region: ', @monitor_region, ', monitor_time: ', @monitor_time, ', plant_id: ', @plant_id, ', monitor_temp: ', @monitor_temp, ', monitor_grow: ', @monitor_grow, ', monitor_illu: ', @monitor_illu));
+END;
