@@ -20,3 +20,6 @@ Task5_monitorData_trigger触发器详情：
 ① 可使用 sp_help 查看触发器的一般信息；EXEC sp_help monitorData_trigger
 ② 可使用 sp_depends 查看触发器的相关性；EXEC sp_depends monitorData_trigger
 ③ 可使用 sp_helptext 查看触发器的定义信息；EXEC sp_helptext monitorData_trigger
+
+最新script.sql的修改情况：
+为创建任务5的三个视图。
