@@ -1,5 +1,7 @@
-from DAO import BaseDAO  # 假设有一个 BaseDAO 类，包含通用的数据库操作方法
+from DAO.DAO import BaseDAO  # 假设有一个 BaseDAO 类，包含通用的数据库操作方法
 from classes import plant_Maintenance
+from classes.plant_Maintenance import plant_Maintenance
+
 
 class PlantMaintenanceDAO(BaseDAO):
     def __init__(self, db):
@@ -16,10 +18,10 @@ class PlantMaintenanceDAO(BaseDAO):
     def update(self, plant_maintenance):
         query = """
             UPDATE plant_Maintenance
-            SET task_id = ?
-            WHERE plant_id = ?
+            SET plant_id = ?
+            WHERE task_id = ?
         """
-        params = (plant_maintenance.get_task_id(), plant_maintenance.get_plant_id())
+        params = (plant_maintenance.get_plant_id(), plant_maintenance.get_task_id())
         self.execute_query(query, params)
 
     def delete(self, plant_maintenance):
@@ -40,3 +42,12 @@ class PlantMaintenanceDAO(BaseDAO):
         if row is not None:
             return plant_Maintenance(*row)
         return None
+
+    def get_plants_for_task(self, task_id):
+        query = """
+            SELECT * FROM plant_Maintenance
+            WHERE task_id = ?
+        """
+        params = (task_id,)
+        rows = self.fetch_all(query, params)
+        return [plant_Maintenance(*row) for row in rows]

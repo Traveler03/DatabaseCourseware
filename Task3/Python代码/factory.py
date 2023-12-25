@@ -1,18 +1,17 @@
-from DAO import Maintenance_DAO
-from DAO import Maninternance_user_DAO
-from DAO import plant_Maintenance_DAO
+from DAO.Maintenance_DAO import MaintenanceDAO
+from DAO.Maninternance_user_DAO import ManinternanceUserDAO
+from DAO.plant_Maintenance_DAO import PlantMaintenanceDAO
 
 
 class DAOFactory:
     def __init__(self, db):
         self.db = db
 
-    def create_course_dao(self):
-        return Maintenance_DAO(self.db)
+    def create_Maintenance_DAO(self):
+        return MaintenanceDAO(self.db)
 
+    def create_Maninternance_user_DAO(self):
+        return ManinternanceUserDAO(self.db)
 
-    def create_homework_dao(self):
-        return Maninternance_user_DAO(self.db)
-
-    def create_student_dao(self):
-        return plant_Maintenance_DAO(self.db)
+    def create_plant_Maintenance_DAO(self):
+        return PlantMaintenanceDAO(self.db)

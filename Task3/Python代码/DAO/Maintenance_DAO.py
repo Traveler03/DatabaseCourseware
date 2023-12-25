@@ -1,5 +1,5 @@
-from DAO import BaseDAO  # 假设有一个 BaseDAO 类，包含通用的数据库操作方法
-from classes import Maintenance
+from DAO.DAO import BaseDAO
+from classes.Maintenance import Maintenance
 
 
 class MaintenanceDAO(BaseDAO):
@@ -45,3 +45,23 @@ class MaintenanceDAO(BaseDAO):
         if row is not None:
             return Maintenance(*row)
         return None
+
+    def get_all(self):
+        query = """
+            SELECT * FROM Maintenance
+        """
+        rows = self.fetch_all(query)
+        return [Maintenance(*row) for row in rows] if rows else []
+
+    def get_last_task_id(self):
+        query = """
+            SELECT MAX(task_id) FROM Maintenance
+        """
+        result = self.fetch_one(query)
+        return result[0] if result is not None else None
+
+    def get_maintenance_users(self, task_id, man_user_dao):
+        return man_user_dao.get_users_for_task(task_id)
+
+    def get_maintenance_plants(self, task_id, plant_maintenance_dao):
+        return plant_maintenance_dao.get_plants_for_task(task_id)

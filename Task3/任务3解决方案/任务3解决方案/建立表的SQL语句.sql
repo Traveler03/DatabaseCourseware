@@ -11,7 +11,7 @@ CREATE TABLE Maintenance (
 
 CREATE TABLE Maninternance_user (
     task_id bigint,
-    user_id nchar(4),
+    user_id bigint,
     PRIMARY KEY (task_id, user_id),
     FOREIGN KEY (task_id) REFERENCES Maintenance(task_id)
 );
@@ -22,3 +22,5 @@ CREATE TABLE plant_Maintenance (
     PRIMARY KEY (plant_id, task_id),
     FOREIGN KEY (task_id) REFERENCES Maintenance(task_id)
 );
+
+
