@@ -253,4 +253,3 @@ def update_plant():
             pass
         elif m==-1:
             return
-update_plant()
