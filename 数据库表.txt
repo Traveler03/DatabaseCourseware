@@ -8,7 +8,7 @@ plant_fig(植物-配图表)：			plant_id（bigint，植物id），fig_id(bigint
 plant(植物表)：		  plant_id(bigint,植物id),alia(nvarchar(MAX),别名)species_name（nvarchar(50)，种名），morphology（nvarchar(MAX)，形态特征），value(nvarchar(MAX)，应用价值)，key_tech（nvarchar(MAX),栽 培技术要点），environment(nvarchar(MAX),生长环境)，created_by（nvarchar(50),创建人）,created_at(date,创建时间)，updated_at（date，更新时间）
 plant_Maintenance(养护任务——植物表)：       plant_id（bigint,植物id），task_id(bigint,养护任务id)
 plant_pest(植物——病虫害表)：					plant_id(bigint,植物id)，pest_id(bigint，病虫害id)
-pest_medicine(病虫害——药物表)：			medicine_id(bigint,药物id)，pest_id(bigint,病虫害id),Dosage(nvarchar(50),药物用量)
+pest_medicine(病虫害——药物表)：			medicine_id(bigint,药物id)，pest_id(bigint,病虫害id),dosage(nvarchar(50),药物用量)
 user(用户表)		       user_id(bigint,用户名id)，user_name(nvarchar(50),用户名)，password(nvarchar(50),密码)，posts(nvarchar(50)，职务)
 classes(种类表)				class_id(bigint, 种类id)，parent(bigint,上一级id)，rank（int，等级），class_name(nvachar(50)分类名称)
 plant_class(植物——种类表)			plant_id（bigint,植物id），class_id(bigint，种类id)
