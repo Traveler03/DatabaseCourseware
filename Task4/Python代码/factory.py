@@ -1,20 +1,21 @@
-from DAO import medicine_DAO
-from DAO import pest_DAO
-from DAO import pest_medicine_DAO
-from DAO import pest_DAO
+from DAO.medicine_DAO import MedicineDAO
+from DAO.pest_DAO import PestDAO
+from DAO.pest_medicine_DAO import PestMedicineDAO
+from DAO.plan_pest_DAO import PlantPestDAO
 
-class NewDAOFactory:
+
+class DaoFactory:
     def __init__(self, db):
         self.db = db
 
     def create_medicine_dao(self):
-        return medicine_DAO(self.db)
+        return MedicineDAO(self.db)
 
     def create_pest_dao(self):
-        return pest_DAO(self.db)
+        return PestDAO(self.db)
 
     def create_pest_medicine_dao(self):
-        return pest_medicine_DAO(self.db)
+        return PestMedicineDAO(self.db)
 
     def create_plant_pest_dao(self):
-        return pest_DAO(self.db)
+        return PlantPestDAO(self.db)

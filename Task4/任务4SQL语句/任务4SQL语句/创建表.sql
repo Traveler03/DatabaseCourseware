@@ -1,4 +1,18 @@
 USE GardenPlants;
+
+CREATE TABLE plant (
+    plant_id BIGINT PRIMARY KEY,
+    alia NVARCHAR(MAX),
+    species_name NVARCHAR(50),
+    morphology NVARCHAR(MAX),
+    value NVARCHAR(MAX),
+    key_tech NVARCHAR(MAX),
+    environment NVARCHAR(MAX),
+    created_by NVARCHAR(50),
+    created_at DATE,
+    updated_at DATE
+);
+
 CREATE TABLE pest (
     pest_id BIGINT PRIMARY KEY,
     pest_name NVARCHAR(50),

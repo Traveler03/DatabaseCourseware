@@ -1,11 +1,14 @@
-from DAO import BaseDAO  # 假设有一个 BaseDAO 类，包含通用的数据库操作方法
-from classes import medicine
+from DAO.DAO import BaseDAO  # 假设有一个 BaseDAO 类，包含通用的数据库操作方法
+from classes.medicine import medicine
+
 
 class MedicineDAO(BaseDAO):
     def __init__(self, db):
         super().__init__(db)
 
     def insert(self, medicine):
+        new_id = self.get_max_id() + 1
+        medicine.set_medicin_id(new_id)
         query = """
             INSERT INTO medicine (medicin_id, medicine_name, duration)
             VALUES (?, ?, ?)
@@ -39,4 +42,23 @@ class MedicineDAO(BaseDAO):
         row = self.fetch_one(query, params)
         if row is not None:
             return medicine(*row)
+        return None
+
+    def get_max_id(self):
+        query = "SELECT MAX(medicin_id) FROM medicine"
+        max_id = self.fetch_one(query)
+        return max_id[0] if max_id[0] is not None else 0
+
+    def map_to_object(self, row):
+        if row:
+            medicine_id, medicine_name, duration = row
+            return medicine(medicin_id=medicine_id, medicine_name=medicine_name, duration=duration)
+        return None
+
+    def find_by_name(self, medicine_name):
+        query = "SELECT * FROM medicine WHERE medicine_name = ?"
+        params = (medicine_name,)
+        result = self.fetch_one(query, params)
+        if result:
+            return self.map_to_object(result)
         return None
