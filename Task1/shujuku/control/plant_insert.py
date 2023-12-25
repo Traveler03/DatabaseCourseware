@@ -1,3 +1,4 @@
+#植物插入
 import Factor
 from classes.classes import classes as classs
 from classes import plant,plant_classes
@@ -10,6 +11,7 @@ def creat_plant(user=None):
     name=""
     while judename==0:
         name=input("请输入植物名：")
+        name=name.replace(" ","")
         for plantname in result_name:
             judename =1
             if plantname[0]==name:
@@ -24,6 +26,7 @@ def creat_plant(user=None):
         print(Family[1],end=' ')
     print("")
     Family_name=input("")
+    Family_name=Family_name.replace(" ","")
     judge=0
     Family_id=-1
     result_genus=[]
@@ -49,6 +52,7 @@ def creat_plant(user=None):
             print(Genus[1],end=' ')
     print("")
     Genus_name=input()
+    Genus_name=Genus_name.replace(" ","")
     judge2=0
     Genus_id=-1
     for Genuss in result_genus:
@@ -78,14 +82,3 @@ def creat_plant(user=None):
     new_plant_classes=plant_classes.plant_classes()
     new_plant_classes.__int__(plant_id=result_id[0][0],class_id=Genus_id)
     FC_plant_classes.insert(new_plant_classes)
-    if judge!=1:
-        view="view"+str(Family_id)
-        print(view)
-        sql="create view %s as select DISTINCT plant.plant_id,species_name,c1.class_name as keming,c2.class_name as shuming,Plant.alia, \
-        plant.key_tech,plant.morphology,plant.value,plant.created_by,plant.created_at, \
-        plant.updated_at from classes c1,classes c2,plant_class,Plant,Pest,plant_pest \
-        where plant.plant_id=plant_class.plant_id and plant_class.class_id=c2.class_id \
-        and c1.class_id=(select c2.parent) and c1.class_id=%d"%(view,Family_id)
-        print(sql)
-        plants.creatview(sql)
-creat_plant()

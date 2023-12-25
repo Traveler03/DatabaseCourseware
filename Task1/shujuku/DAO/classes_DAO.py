@@ -8,7 +8,7 @@ class classes_dao(metaclass=abc.ABCMeta):
         pass
 
     @abc.abstractmethod
-    def update(self, classes):
+    def update(self, choose,id=None,value=None,classes=None):
         pass
 
     @abc.abstractmethod
@@ -27,15 +27,25 @@ class classes_dao_Impl(base_dao,classes_dao):
         cursor.execute("insert into classes (parent,rank,class_name) values(%s,%s,%s)",( classes._parent,classes._rank,classes._class_name))
         self.connect.commit()
         cursor.close()
-    def update(self,classes):
+    def update(self,choose,id=None,value=None,classes=None):
         cursor = self.connect.cursor()
-        cursor.execute("UPDATE classes SET classes_parent=%s,classes_rank=%s,classes_class_name=%s  where classes_id=%s", (
-         classes._parent,classes._rank,classes._class_name,classes._class_id))
-        self.connect.commit()
+        if choose==0:
+            cursor.execute("UPDATE classes SET parent='%s',rank='%s',classes_class_name='%s'  where class_id=%s", (
+            classes._parent,classes._rank,classes._class_name,classes._class_id))
+            self.connect.commit()
+        elif choose == 1:
+            cursor.execute("UPDATE classes SET parent='%s' where class_id=%s" % (value, id))
+            self.connect.commit()
+        elif choose == 2:
+            cursor.execute("UPDATE classes SET rank='%s' where class_id=%s" % (value, id))
+            self.connect.commit()
+        elif choose == 3:
+            cursor.execute("UPDATE classes SET class_name='%s' where class_id=%s" % (value, id))
+            self.connect.commit()
         cursor.close()
-    def delete(self, classes):
+    def delete(self,value):
         cursor = self.connect.cursor()
-        cursor.execute("delete from classes where classes_id=%s", (classes._class_id))
+        cursor.execute("delete from classes where class_id=%s", (value))
         self.connect.commit()
         cursor.close()
     def select(self,sql):

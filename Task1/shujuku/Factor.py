@@ -40,3 +40,7 @@ class dao_factory(object):
             sample=plant_region_DAO.plant_region_dao_Impl()
             sample.__int__()
         return sample
+    def creatview(self,sql):
+        self.connect=dao.dao.get_conn()
+        cursor=self.connect().cursor()
+        cursor.execute(sql)

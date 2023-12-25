@@ -20,12 +20,12 @@ class plant_classes_dao_Impl(base_dao,plant_classes_dao):
         self.connect=self.get_conn()
     def insert(self, plant_classes):
         cursor=self.connect.cursor()
-        cursor.execute("insert into plant_classes values(%s,%s)",(plant_classes._plant_id, plant_classes._class_id))
+        cursor.execute("insert into plant_class values(%d,%d)",(plant_classes._plant_id, plant_classes._class_id))
         self.connect.commit()
         cursor.close()
     def delete(self, plant_classes):
         cursor = self.connect.cursor()
-        cursor.execute("delete from plant_classes where plant_id=%s and class_id=%s", (plant_classes._plant_id,plant_classes._class_id))
+        cursor.execute("delete from plant_class where plant_id=%s and class_id=%s", (plant_classes._plant_id,plant_classes._class_id))
         self.connect.commit()
         cursor.close()
     def select(self,sql):

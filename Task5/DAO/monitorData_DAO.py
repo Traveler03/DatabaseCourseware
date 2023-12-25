@@ -63,3 +63,9 @@ class monitorData_dao_Impl(base_dao, monitorData_dao):
         cursor.close()
         return result
 
+    def showshitu(self):
+        cursor = self.connect.cursor()
+        cursor.execute("select * from monitorData_plant")
+        result=cursor.fetchall()
+        cursor.close()
+        return result

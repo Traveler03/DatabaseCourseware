@@ -20,7 +20,7 @@ class plant_fig_dao_Impl(base_dao,plant_fig_dao):
         self.connect=self.get_conn()
     def insert(self, plant_fig):
         cursor=self.connect.cursor()
-        cursor.execute("insert into plant_fig values(%s,%s)",(plant_fig._plant_id, plant_fig._image_id))
+        cursor.execute("insert into plant_fig values(%d,%d)",(plant_fig._plant_id, plant_fig._image_id))
         self.connect.commit()
         cursor.close()
     def delete(self, plant_fig):

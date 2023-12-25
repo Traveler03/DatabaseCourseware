@@ -451,6 +451,9 @@ def tongji():
     dao = monitorData_dao_Impl()
 
     while True:
+        result = dao.showshitu()
+        for row in result:
+            print(row)
         print("请选择操作:")
         print("1. 查询最大值")
         print("2. 查询最小值")

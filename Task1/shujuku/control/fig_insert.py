@@ -1,3 +1,4 @@
+#配图加入
 import Factor
 from classes import plant,plant_fig,fig
 FC=Factor.dao_factory()
@@ -46,4 +47,4 @@ def creat_fig(user=None):
     new_plant_fig=plant_fig.plant_fig()
     new_plant_fig.__int__(plant_id=plant_id,image_id=fig_id)
     plant_figs.insert(new_plant_fig)
-creat_fig()
+

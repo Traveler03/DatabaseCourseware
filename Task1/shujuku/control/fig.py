@@ -1,3 +1,4 @@
+#配图
 import Factor
 FC=Factor.dao_factory()
 figs=FC.create("fig")
@@ -16,4 +17,4 @@ def display():
         print("创建时间：%s"%message[7])
         print("更新时间：%s"%message[8])
         print()
-display()
+

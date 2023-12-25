@@ -1,3 +1,4 @@
+#地区插入
 import Factor
 from classes import region as Regionn
 from classes import plant,plant_region
@@ -18,6 +19,7 @@ def creat_region():
     plant_id = -1
     while judename == 0:
         name = input()
+        name=name.replace(" ","")
         for plantname in result_name:
             if plantname[1] == name:
                 judename = 1
@@ -56,6 +58,7 @@ def creat_region():
             print(city[1],end=' ')
     print("")
     city_name=input()
+    city_name=city_name.replace(" ","")
     judge2=0
     city_id=-1
     for citys in result_city:
@@ -65,7 +68,7 @@ def creat_region():
             break
     result_county=[]
     if judge2==0:
-        new_region = regions()
+        new_region = Regionn.region()
         new_region.__int__(rank=1,parent=province_id, region_name=city_name)
         regions.insert(new_region)
         sql_city_id = "select region_id,region_name from region where region_name='%s'" % city_name
@@ -80,6 +83,7 @@ def creat_region():
             print(county[1], end=' ')
     print("")
     county_name = input()
+    county_name=county_name.replace(" ","")
     judge3 = 0
     county_id = -1
     for countys in result_county:
@@ -88,7 +92,7 @@ def creat_region():
             judge3 = 1
             break
     if judge3 == 0:
-        new_region = regions()
+        new_region = Regionn.region()
         new_region.__int__(rank=2, parent=city_id, region_name=county_name)
         regions.insert(new_region)
         sql_county_id = "select region_id,region_name from region where region_name='%s'" % county_name
@@ -97,4 +101,3 @@ def creat_region():
     new_plant_region=plant_region.plant_region()
     new_plant_region.__int__(plant_id=plant_id,region_id=county_id)
     plant_regions.insert(new_plant_region)
-creat_region()

@@ -20,7 +20,7 @@ class plant_pest_dao_Impl(base_dao,plant_pest_dao):
         self.connect=self.get_conn()
     def insert(self, plant_pest):
         cursor=self.connect.cursor()
-        cursor.execute("insert into plant_pest values(%s,%s)",(plant_pest._plant_id, plant_pest._pest_id))
+        cursor.execute("insert into plant_pest values(%d,%d)",(plant_pest._plant_id, plant_pest._pest_id))
         self.connect.commit()
         cursor.close()
     def delete(self, plant_pest):
