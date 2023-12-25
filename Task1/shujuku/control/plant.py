@@ -11,9 +11,12 @@ def display():
         print("植物编号：%s"%message[0])
         print("植物名称：%s" % message[1])
         print("植物别名：%s"%message[2])
-        sql2="select c1.class_name as shuming,c2.class_name as keming  from classes c1,classes c2,plant_class,Plant \
-    where plant.plant_id=plant_class.plant_id and plant_class.class_id=c1.class_id and  \
-    plant.plant_id=%s and c2.class_id=(select c1.parent)"%message[0]
+        sql2="SELECT c1.class_name AS shuming, c2.class_name AS keming\
+        FROM plant\
+        LEFT JOIN plant_class ON plant.plant_id = plant_class.plant_id\
+        LEFT JOIN classes c1 ON plant_class.class_id = c1.class_id\
+        LEFT JOIN classes c2 ON c1.parent = c2.class_id\
+        WHERE plant.plant_id = %s;"%message[0]
         result_class=plants.select(sql2)
         print("植物科名：%s"%result_class[0][1])
         print("植物属名：%s"%result_class[0][0])
